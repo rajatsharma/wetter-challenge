@@ -43,4 +43,4 @@ Hint: to make API calls please always use the following headers:
     token: rZP2E6Zy0JsbR3gh21Y4SDvEFU
     X-Application-ID: com.wetter/web-react/coding-challenge
 
-Whenever you have questions, do not hesitate to ask. Just contact [andreas.ihling@wetter.com](andreas.ihling@wetter.com)
+Whenever you have questions, do not hesitate to ask.
