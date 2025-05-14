@@ -1,0 +1,63 @@
+{
+  "name": "Berlin",
+  "label": "Berlin",
+  "isoPath": null,
+  "normalized": {
+    "name": "berlin",
+    "country": {
+      "name": "deutschland"
+    }
+  },
+  "zipcodes": [
+    "10178"
+  ],
+  "admin1": {
+    "location": {
+      "isoPath": "EU/DE/BE",
+      "code": "DEADM116",
+      "name": "Berlin",
+      "slug": "deutschland/berlin/DEADM116.html"
+    }
+  },
+  "admin3": {
+    "code": "11000",
+    "location": {
+      "code": "DE6547383",
+      "name": "Berlin, Stadt"
+    }
+  },
+  "admin4": {
+    "code": "11000000"
+  },
+  "country": {
+    "code": "DE",
+    "name": "Deutschland",
+    "location": {
+      "name": "Deutschland",
+      "code": "EUDE",
+      "slug": "deutschland/EUDE.html",
+      "isoPath": "EU/DE"
+    }
+  },
+  "continent": {
+    "location": {
+      "name": "Europa",
+      "code": "EU",
+      "slug": "europa/EU.html",
+      "isoPath": "EU"
+    }
+  },
+  "feature": {
+    "code": "PPLC"
+  },
+  "code": "DE0001020",
+  "slug": "deutschland/berlin/DE0001020.html",
+  "timezone": "Europe/Berlin",
+  "coordinates": {
+    "latitude": 52.5244,
+    "longitude": 13.4105
+  },
+  "scores": {
+    "seoPriority": 1
+  }
+}

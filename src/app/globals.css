@@ -5,6 +5,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --card-color: oklch(27.4% 0.006 286.033);
+    --card-details-color: oklch(44.2% 0.017 285.786);
     --background: #0a0a0a;
     --foreground: #ededed;
   }

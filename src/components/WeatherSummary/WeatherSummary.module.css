@@ -1,0 +1,68 @@
+.header {
+  display: grid;
+  padding: 15px 25px;
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+  align-items: stretch;
+  justify-items: stretch;
+  justify-content: stretch;
+  width: 100%;
+  align-content: stretch;
+  grid-template-columns: 1fr 1.5fr 1fr 0.5fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "day icon temperature handle"
+    "day icon temperature handle"
+    "date icon forecast handle";
+
+  & > * {
+    display: flex;
+  }
+
+  &:last-of-type {
+    border-radius: 0 0 0.5rem 0.5rem;
+    &[data-open="true"] {
+      border-radius: 0;
+    }
+  }
+
+  &:first-of-type {
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+}
+
+.weatherDay {
+  grid-area: day;
+}
+
+.weatherDate {
+  grid-area: date;
+}
+
+.weatherIcon {
+  grid-area: icon;
+  align-self: center;
+  justify-self: center;
+}
+
+.weatherTemperature {
+  grid-area: temperature;
+  font-size: 3rem;
+  align-items: flex-end;
+  justify-items: flex-end;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.weatherTemperatureMin {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.weatherForecast {
+  grid-area: forecast;
+}
+
+.weatherHandle {
+  grid-area: forecast;
+}
