@@ -1,6 +1,6 @@
 .header {
+  background: var(--card-details-color);
   display: grid;
-  font: inherit;
   padding: 15px 25px;
   grid-column-gap: 0;
   grid-row-gap: 0;
@@ -8,46 +8,26 @@
   justify-items: stretch;
   justify-content: stretch;
   width: 100%;
-  border: none;
   align-content: stretch;
   grid-template-columns: 1fr 1.5fr 1fr 0.5fr;
   grid-template-rows: 1fr 1fr 1fr;
-  transition: border-radius ease 0.5s;
-  border-bottom: solid 1px var(--card-border-color);
   grid-template-areas:
-    "day icon temperature handle"
-    "day icon temperature handle"
-    "date icon forecast handle";
+    "part icon temperature arrow"
+    "part icon temperature arrow"
+    "time icon forecast arrow";
 
   & > * {
     display: flex;
   }
-
-  &:last-of-type {
-    border: none;
-    &[data-open="true"] {
-      border-radius: 0;
-    }
-  }
-
-  &:first-of-type {
-    border-radius: 0.5rem 0.5rem 0 0;
-  }
 }
 
-.weatherDay {
-  grid-area: day;
+.weatherTime {
+  grid-area: time;
 }
 
-.weatherDate {
-  margin: inherit;
-  grid-area: date;
-}
-
-.weatherIcon {
-  grid-area: icon;
-  align-self: center;
-  justify-self: center;
+.weatherPart {
+  grid-area: part;
+  text-transform: capitalize;
 }
 
 .weatherTemperature {
@@ -59,6 +39,12 @@
   line-height: 1;
 }
 
+.weatherIcon {
+  grid-area: icon;
+  align-self: center;
+  justify-self: center;
+}
+
 .weatherTemperatureMin {
   font-size: 1.25rem;
   line-height: 1;
@@ -68,6 +54,15 @@
   grid-area: forecast;
 }
 
-.weatherHandle {
-  grid-area: forecast;
+.transition {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height ease 0.5s;
+
+  &:last-of-type {
+    border-radius: 0 0 0.5rem 0.5rem;
+    &[data-open="true"] {
+      border-radius: 0;
+    }
+  }
 }

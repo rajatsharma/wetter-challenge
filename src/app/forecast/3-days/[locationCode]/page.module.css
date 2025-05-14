@@ -10,3 +10,8 @@
   color: var(--foreground);
   padding: 1rem 0;
 }
+
+.weatherContainer {
+  border: solid 1px var(--card-border-color);
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
