@@ -7,8 +7,8 @@ const FullScreenLoader: React.FC = () => {
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <Suspense fallback={<FullScreenLoader />}>
-      <div className={styles.container}>{children}</div>
-    </Suspense>
+    // <Suspense fallback={<FullScreenLoader />}>
+    <div className={styles.container}>{children}</div>
+    // </Suspense>
   );
 }
