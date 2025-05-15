@@ -5,9 +5,18 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --btn-primary-bg: #282828; /* Dark gray from image */
+    --btn-primary-text: #ffffff;
+    --btn-primary-border: #444444; /* Subtle border from image */
+    --btn-primary-bg-hover: #3a3a3a;
     --card-color: oklch(27.4% 0.006 286.033);
     --card-details-color: oklch(44.2% 0.017 285.786);
     --card-border-color: oklch(70.5% 0.015 286.067);
+    --btn-secondary-bg: #eaeaea; /* Light gray from image */
+    --btn-secondary-text: #000000; /* Black text from image */
+    --btn-secondary-border: transparent; /* No visible border in image */
+    --btn-secondary-bg-hover: #dcdcdc;
+    --focus-outline-color: #60a5fa;
     --background: #0a0a0a;
     --foreground: #ededed;
   }

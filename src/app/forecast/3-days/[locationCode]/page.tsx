@@ -1,8 +1,10 @@
-import styles from "./page.module.css";
-import WeatherSummary from "@/components/WeatherSummary/WeatherSummary";
+import styles from "@/app/forecast/layout.module.css";
+import { Metadata } from "next";
+import LinkButton from "@/components/LinkButton/LinkButton";
+import WeatherAccordion from "@/components/WeatherForecast/WeatherAccordion";
 import { getLocationData } from "@/lib/api/location";
 import { getWeatherData } from "@/lib/api/weather";
-import { Metadata } from "next";
+import Header from "@/components/Header/Header";
 
 type Params = Promise<{ locationCode: string }>;
 
@@ -33,9 +35,10 @@ export async function generateMetadata({
   };
 }
 
-// Cache this page for 1 hr
-export const revalidate = 3600;
 export default async function Page({ params }: { params: Params }) {
+  // Loader could appear when the cache is revalidating
+  // Uncomment the line below to forcefully suspend this component and check if Loader doesn't affect CLS
+  // await new Promise((r) => setTimeout(r, 1000));
   const { locationCode } = await params;
   const location = await getLocationData(locationCode);
   const weather = await getWeatherData(location.coordinates);
@@ -43,19 +46,27 @@ export default async function Page({ params }: { params: Params }) {
   const threeDaysForecast = weather.items.slice(0, 3);
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>
-        {location.name} - 3 Days Weather Forecast
-      </h1>
-      <div className={styles.weatherContainer}>
+    <>
+      <Header title={`${location.name} - 3 Days Weather Forecast`}>
+        <LinkButton
+          href={`/forecast/7-days/${locationCode}.html`}
+          variant="secondary"
+        >
+          Check for 7 Days
+        </LinkButton>
+      </Header>
+      <main className={styles.weatherContainer}>
         {threeDaysForecast.map((w) => (
-          <WeatherSummary
+          <WeatherAccordion
             key={w.summary.date}
             summary={w.summary}
             spaces={w.spaces}
           />
         ))}
+      </main>
+      <div className={styles.footerContainer}>
+        <LinkButton href="/forecast">Go to Cities List</LinkButton>
       </div>
-    </div>
+    </>
   );
 }

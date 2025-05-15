@@ -1,0 +1,112 @@
+.container {
+  display: grid;
+  font: inherit;
+  padding: 15px 25px;
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+  align-items: stretch;
+  justify-items: stretch;
+  justify-content: stretch;
+  width: 100%;
+  border: none;
+  align-content: stretch;
+  grid-template-columns: 1fr 1fr 1.5fr 0.5fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  transition: border-radius ease 0.5s;
+  grid-template-areas:
+    "heading icon temperature handle"
+    "heading icon temperature handle"
+    "subheading icon forecast handle";
+
+  & > * {
+    display: flex;
+  }
+}
+
+.accordion {
+  border-bottom: solid 1px var(--card-border-color);
+
+  &:last-of-type {
+    border-radius: 0 0 0.5rem 0.5rem;
+    border: none;
+
+    &[data-open="true"] {
+      border-radius: 0;
+    }
+  }
+
+  &:first-of-type {
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+}
+
+.disclosure {
+  background: var(--card-details-color);
+  border-radius: 0;
+  border-bottom: none;
+}
+
+.heading {
+  grid-area: heading;
+  text-transform: capitalize;
+}
+
+.subheading {
+  grid-area: subheading;
+  margin: inherit;
+}
+
+.icon {
+  grid-area: icon;
+  align-self: center;
+  justify-self: center;
+}
+
+.temperature {
+  grid-area: temperature;
+  align-self: center;
+  justify-self: center;
+}
+
+.temperatureMax {
+  align-self: flex-end;
+  font-size: 2rem;
+  font-weight: bolder;
+  line-height: 2rem;
+}
+
+.temperatureMin {
+  align-self: flex-end;
+  font-weight: lighter;
+  font-size: 1.5rem;
+}
+
+.forecast {
+  grid-area: forecast;
+  justify-self: center;
+}
+
+.handle {
+  align-self: center;
+  justify-self: flex-end;
+  grid-area: handle;
+  transition: transform ease 0.5s;
+
+  &[data-open="true"] {
+    transform: rotate(180deg);
+  }
+}
+
+.transition {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height ease 0.5s;
+
+  &:last-of-type {
+    border-radius: 0 0 0.5rem 0.5rem;
+
+    &[data-open="true"] {
+      border-radius: 0;
+    }
+  }
+}

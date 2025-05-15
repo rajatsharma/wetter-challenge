@@ -1,0 +1,47 @@
+.container {
+  max-width: 48rem;
+  margin: 0 auto;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.weatherContainer {
+  border: solid 1px var(--card-border-color);
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.footerContainer {
+  margin-top: 2rem;
+}
+
+.fullScreenLoader {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cityPanel {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  height: 8rem;
+  background-color: var(--card-color);
+  justify-content: space-between;
+
+  &:last-of-type {
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+
+  &:first-of-type {
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+
+  & > :first-child {
+    flex: 1;
+    display: flex;
+  }
+
+  & > * {
+    margin: 1em;
+  }
+}
