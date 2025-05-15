@@ -23,22 +23,22 @@
   outline-offset: 2px;
 }
 
-.primary {
+.secondary {
   background-color: var(--btn-primary-bg);
   color: var(--btn-primary-text);
   border-color: var(--btn-primary-border);
 }
 
-.primary:hover {
+.secondary:hover {
   background-color: var(--btn-primary-bg-hover);
 }
 
-.secondary {
+.primary {
   background-color: var(--btn-secondary-bg);
   color: var(--btn-secondary-text);
   border-color: var(--btn-secondary-border);
 }
 
-.secondary:hover {
+.primary:hover {
   background-color: var(--btn-secondary-bg-hover);
 }

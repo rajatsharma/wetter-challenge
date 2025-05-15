@@ -30,20 +30,21 @@ const ForecastPage: React.FC = () => {
   return (
     <>
       <Header title="Forecast" />
-      <main className={styles.weatherContainer}>
+      <main className={styles.sectionBoundary}>
         {citiesList.map((city) => (
-          <section className={styles.cityPanel} key={city.code}>
+          <section
+            className={styles.cityPanel}
+            key={city.code}
+            aria-label={`Forecast for ${city.name}`}
+          >
             <h2>{city.name}</h2>
-            <LinkButton
-              href={`/forecast/3-days/${city.code}.html`}
-              variant="primary"
-            >
-              Check for 7 Days
-            </LinkButton>
             <LinkButton
               href={`/forecast/7-days/${city.code}.html`}
               variant="secondary"
             >
+              Check for 7 Days
+            </LinkButton>
+            <LinkButton href={`/forecast/3-days/${city.code}.html`}>
               Check for 3 Days
             </LinkButton>
           </section>

@@ -46,14 +46,11 @@ export default async function Page({ params }: { params: Params }) {
   return (
     <>
       <Header title={`${location.name} - 7 Days Weather Forecast`}>
-        <LinkButton
-          href={`/forecast/3-days/${locationCode}.html`}
-          variant="secondary"
-        >
+        <LinkButton href={`/forecast/3-days/${locationCode}.html`}>
           Check for 3 Days
         </LinkButton>
       </Header>
-      <main className={styles.weatherContainer}>
+      <main className={styles.sectionBoundary}>
         {sevenDaysForecast.map((w) => (
           <WeatherAccordion
             key={w.summary.date}
@@ -63,7 +60,9 @@ export default async function Page({ params }: { params: Params }) {
         ))}
       </main>
       <div className={styles.footerContainer}>
-        <LinkButton href="/forecast">Go to Cities List</LinkButton>
+        <LinkButton variant="secondary" href="/forecast">
+          Go to Cities List
+        </LinkButton>
       </div>
     </>
   );

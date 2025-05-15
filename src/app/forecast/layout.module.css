@@ -3,7 +3,7 @@
   margin: 0 auto;
 }
 
-.weatherContainer {
+.sectionBoundary {
   border: solid 1px var(--card-border-color);
   border-radius: 0.5rem;
 }
