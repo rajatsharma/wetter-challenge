@@ -33,6 +33,8 @@ export async function generateMetadata({
   };
 }
 
+// Cache this page for 1 hr
+export const revalidate = 3600;
 export default async function Page({ params }: { params: Params }) {
   const { locationCode } = await params;
   const location = await getLocationData(locationCode);

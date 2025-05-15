@@ -14,8 +14,9 @@ export async function getWeatherData(coordinates: {
     `${WETTER_URL}/weather/forecast/${coordinates.latitude}/${coordinates.longitude}/`,
     {
       headers: requestHeaders,
-      // Cache Weather response for an hour
-      next: { revalidate: 60 * 60 },
+      // Cache Weather response for 50 min, we don't want this value to match 1 hr as we cache all our
+      // routes for 1 hr
+      next: { revalidate: 50 * 60 },
     },
   );
 
