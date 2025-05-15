@@ -10,7 +10,7 @@
   width: 100%;
   border: none;
   align-content: stretch;
-  grid-template-columns: 1fr 1.5fr 1fr 0.5fr;
+  grid-template-columns: 1fr 1fr 1.5fr 0.5fr;
   grid-template-rows: 1fr 1fr 1fr;
   transition: border-radius ease 0.5s;
   border-bottom: solid 1px var(--card-border-color);

@@ -14,13 +14,13 @@ export async function generateMetadata({
   const { locationCode } = await params;
   const location = await getLocationData(locationCode);
 
-  const title = `${location.name} - 3 Days Weather Forecast`;
-  const description = `3 Days Weather Forecast for ${location.name} powered by Wetter.com`;
+  const title = `${location.name} - 7 Days Weather Forecast`;
+  const description = `7 Days Weather Forecast for ${location.name} powered by Wetter.com`;
 
   return {
     title,
     description,
-    keywords: `${location.name} Weather, Wetter, 3 Days Forecast, Weather, Current Weather`,
+    keywords: `${location.name} Weather, Wetter, 7 Days Forecast, Weather, Current Weather`,
     openGraph: {
       title,
       description,
@@ -38,12 +38,12 @@ export default async function Page({ params }: { params: Params }) {
   const location = await getLocationData(locationCode);
   const weather = await getWeatherData(location.coordinates);
 
-  const threeDaysForecast = weather.items.slice(0, 3);
+  const threeDaysForecast = weather.items.slice(0, 7);
 
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>
-        {location.name} - 3 Days Weather Forecast
+        {location.name} - 7 Days Weather Forecast
       </h1>
       <div className={styles.weatherContainer}>
         {threeDaysForecast.map((w) => (

@@ -9,7 +9,7 @@
   justify-content: stretch;
   width: 100%;
   align-content: stretch;
-  grid-template-columns: 1fr 1.5fr 1fr 0.5fr;
+  grid-template-columns: 1fr 1fr 1.5fr 0.5fr;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas:
     "part icon temperature arrow"
