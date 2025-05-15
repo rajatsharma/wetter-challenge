@@ -35,7 +35,9 @@ const WeatherPanel: React.FC<WeatherPanelProps> = ({
         aria-label={`Estimated temperature from ${temperature.min}°C to ${temperature.max}°C`}
       >
         <span className={styles.temperatureMax}>{temperature.max ?? "-"}°</span>
-        <span className={styles.temperatureMin}>{temperature.min ?? "-"}°</span>
+        <span className={styles.temperatureMin}>
+          /{temperature.min ?? "-"}°
+        </span>
       </div>
       <div className={styles.forecast} aria-label={forecast ?? "Forecast"}>
         {forecast ?? ""}

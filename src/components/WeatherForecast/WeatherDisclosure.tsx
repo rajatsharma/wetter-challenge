@@ -29,17 +29,13 @@ export default function WeatherDisclosure(props: WeatherDisclosureProps) {
   return (
     <div
       ref={contentRef}
-      className={styles.transition}
+      className={styles.disclosureBoundary}
       id={`disclosure-${props.id}`}
       aria-label={`Detailed Forecast for ${props.relativeDay}`}
       role="region"
     >
       {props.spaces.map((space) => (
-        <section
-          className={containerClass}
-          key={space.typeLabel}
-          role="listitem"
-        >
+        <section className={containerClass} key={space.typeLabel}>
           <WeatherPanel
             heading={space.type ?? space.typeLabel}
             subheading={`${formatHours(space.from)} - ${formatHours(space.to)} hrs`}

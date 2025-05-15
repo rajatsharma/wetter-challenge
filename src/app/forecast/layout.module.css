@@ -1,7 +1,6 @@
 .container {
   max-width: 48rem;
   margin: 0 auto;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .weatherContainer {
@@ -13,19 +12,13 @@
   margin-top: 2rem;
 }
 
-.fullScreenLoader {
-  height: 90vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .cityPanel {
   padding: 2rem;
   display: flex;
   align-items: center;
   height: 8rem;
-  background-color: var(--card-color);
+  background-color: var(--card-primary-bg);
+  border-bottom: solid 1px var(--card-border-color);
   justify-content: space-between;
 
   &:last-of-type {
