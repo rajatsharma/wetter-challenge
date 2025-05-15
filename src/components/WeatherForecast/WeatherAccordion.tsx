@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./WeatherForecast.module.css";
-import { useState } from "react";
+import { useId, useState } from "react";
 import WeatherDisclosure from "@/components/WeatherForecast/WeatherDisclosure";
 import { ForecastSpace, ForecastSummary } from "@/app/types/forecast";
 import { formatDate, getRelativeDay } from "@/utils/helpers";
@@ -16,6 +16,8 @@ type WeatherAccordionProps = {
 export default function WeatherAccordion(props: WeatherAccordionProps) {
   const [isOpen, toggleOpen] = useState(false);
   const containerClass = `${styles.container} ${styles.accordion}`;
+  const disclosureId = useId();
+  const relativeDay = getRelativeDay(props.summary.date);
 
   return (
     <>
@@ -24,19 +26,27 @@ export default function WeatherAccordion(props: WeatherAccordionProps) {
         onClick={() => toggleOpen((s) => !s)}
         tabIndex={0}
         data-open={isOpen}
+        aria-expanded={isOpen}
+        aria-label={`View Detailed Forecast for ${relativeDay}`}
+        aria-controls={`disclosure-${disclosureId}`}
       >
         <WeatherPanel
-          heading={getRelativeDay(props.summary.date)}
+          heading={relativeDay}
           subheading={formatDate(props.summary.date)}
           icon={props.summary.weather.iconUrl}
           temperature={props.summary.temperature}
           forecast={props.summary.weather.text}
         />
-        <div className={styles.handle} data-open={isOpen}>
+        <div className={styles.handle} data-open={isOpen} aria-hidden>
           <ChevronIcon />
         </div>
       </button>
-      <WeatherDisclosure spaces={props.spaces} isOpen={isOpen} />
+      <WeatherDisclosure
+        spaces={props.spaces}
+        isOpen={isOpen}
+        relativeDay={relativeDay}
+        id={disclosureId}
+      />
     </>
   );
 }

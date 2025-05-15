@@ -7,8 +7,10 @@ import { formatHours } from "@/utils/helpers";
 import WeatherPanel from "@/components/WeatherForecast/WeatherPanel";
 
 type WeatherDisclosureProps = {
+  id: string;
   spaces: ForecastSpace[];
   isOpen: boolean;
+  relativeDay: string;
 };
 
 export default function WeatherDisclosure(props: WeatherDisclosureProps) {
@@ -25,9 +27,19 @@ export default function WeatherDisclosure(props: WeatherDisclosureProps) {
   const containerClass = `${styles.container} ${styles.disclosure}`;
 
   return (
-    <div ref={contentRef} className={styles.transition}>
+    <div
+      ref={contentRef}
+      className={styles.transition}
+      id={`disclosure-${props.id}`}
+      aria-label={`Detailed Forecast for ${props.relativeDay}`}
+      role="region"
+    >
       {props.spaces.map((space) => (
-        <div className={containerClass} key={space.typeLabel}>
+        <section
+          className={containerClass}
+          key={space.typeLabel}
+          role="listitem"
+        >
           <WeatherPanel
             heading={space.type ?? space.typeLabel}
             subheading={`${formatHours(space.from)} - ${formatHours(space.to)} hrs`}
@@ -35,7 +47,7 @@ export default function WeatherDisclosure(props: WeatherDisclosureProps) {
             temperature={space.temperature}
             forecast={space.weather.text}
           />
-        </div>
+        </section>
       ))}
     </div>
   );

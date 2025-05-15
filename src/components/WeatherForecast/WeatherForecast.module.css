@@ -40,6 +40,11 @@
   }
 }
 
+.accordion:focus-visible {
+  outline: 2px solid var(--focus-outline-color);
+  outline-offset: 2px;
+}
+
 .disclosure {
   background: var(--card-details-color);
   border-radius: 0;

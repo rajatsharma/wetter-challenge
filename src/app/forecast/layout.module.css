@@ -6,7 +6,7 @@
 
 .weatherContainer {
   border: solid 1px var(--card-border-color);
-  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+  border-radius: 0.5rem;
 }
 
 .footerContainer {

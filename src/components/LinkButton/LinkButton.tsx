@@ -16,7 +16,7 @@ const LinkButton: React.FC<LinkButtonProps> = ({
   const variantClass =
     variant === "secondary" ? styles.secondary : styles.primary;
 
-  const combinedClassName = `${styles.linkButton} ${variantClass}`.trim();
+  const combinedClassName = `${styles.linkButton} ${variantClass}`;
 
   return (
     <Link href={href} {...rest} className={combinedClassName}>

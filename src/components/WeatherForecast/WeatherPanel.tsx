@@ -20,21 +20,26 @@ const WeatherPanel: React.FC<WeatherPanelProps> = ({
   return (
     <>
       <h3 className={styles.heading}>{heading}</h3>
-      <span className={styles.subheading}>{subheading}</span>
+      <div className={styles.subheading}>{subheading}</div>
       {icon && (
         <Image
           className={styles.icon}
           width={100}
           height={84}
           src={icon}
-          alt="weather"
+          alt={forecast ?? `${heading}'s weather`}
         />
       )}
-      <div className={styles.temperature}>
+      <div
+        className={styles.temperature}
+        aria-label={`Estimated temperature from ${temperature.min}°C to ${temperature.max}°C`}
+      >
         <span className={styles.temperatureMax}>{temperature.max ?? "-"}°</span>
         <span className={styles.temperatureMin}>{temperature.min ?? "-"}°</span>
       </div>
-      <div className={styles.forecast}>{forecast ?? ""}</div>
+      <div className={styles.forecast} aria-label={forecast ?? "Forecast"}>
+        {forecast ?? ""}
+      </div>
     </>
   );
 };
