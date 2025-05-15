@@ -35,6 +35,7 @@ export async function generateMetadata({
   };
 }
 
+export const revalidate = 3600;
 export default async function Page({ params }: { params: Params }) {
   // Loader could appear when the cache is revalidating
   // Uncomment the line below to forcefully suspend this component and check if Loader doesn't affect CLS

@@ -35,6 +35,7 @@ export async function generateMetadata({
   };
 }
 
+export const revalidate = 3600;
 export default async function Page({ params }: { params: Params }) {
   const { locationCode } = await params;
   const location = await getLocationData(locationCode);
