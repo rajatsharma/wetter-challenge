@@ -44,9 +44,9 @@ const WeatherAccordion: React.FC<WeatherAccordionProps> = (props) => {
             temperature={props.summary.temperature}
             forecast={props.summary.weather.text}
           />
-          <div className={styles.handle} data-open={isOpen} aria-hidden>
+          <span className={styles.handle} data-open={isOpen} aria-hidden>
             <ChevronIcon />
-          </div>
+          </span>
         </button>
       </h2>
       <WeatherDisclosure
