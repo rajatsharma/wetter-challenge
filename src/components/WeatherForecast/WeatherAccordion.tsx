@@ -9,6 +9,7 @@ import ChevronIcon from "@/components/icons/ChevronIcon";
 import WeatherPanel from "@/components/WeatherForecast/WeatherPanel";
 
 type WeatherAccordionProps = {
+  index: number;
   summary: ForecastSummary;
   spaces: ForecastSpace[];
 };
@@ -18,7 +19,7 @@ const WeatherAccordion: React.FC<WeatherAccordionProps> = (props) => {
   const containerClass = `${styles.container} ${styles.accordion}`;
   // Generate SSR safe randomId for disclosure id
   const disclosureId = useId();
-  const relativeDay = getRelativeDay(props.summary.date);
+  const relativeDay = getRelativeDay(props.summary.date, props.index);
 
   // We need to make sure that the accordion is accessible by
   // tab and clickable using enter and space

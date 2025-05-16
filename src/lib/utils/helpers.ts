@@ -1,15 +1,17 @@
-import { format, isToday, isTomorrow } from "date-fns";
+import { format } from "date-fns";
 
-export function getRelativeDay(date: string | null) {
+export function getRelativeDay(date: string | null, index: number) {
   if (date === null) {
     return "-----";
   }
 
-  if (isToday(date)) {
+  // We are using index to determine Today, or Tomorrow instead of using isToday() because it could cause
+  // hydration errors when page is served from different timezone as the client
+  if (index === 0) {
     return "Today";
   }
 
-  if (isTomorrow(date)) {
+  if (index === 1) {
     return "Tomorrow";
   }
 

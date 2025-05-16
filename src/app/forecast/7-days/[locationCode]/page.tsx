@@ -55,9 +55,10 @@ export default async function Page({ params }: { params: Params }) {
         </LinkButton>
       </Header>
       <main className={styles.sectionBoundary}>
-        {sevenDaysForecast.map((w) => (
+        {sevenDaysForecast.map((w, i) => (
           <WeatherAccordion
             key={w.summary.date}
+            index={i}
             summary={w.summary}
             spaces={w.spaces}
           />
