@@ -8,7 +8,7 @@
 - To improve LCP, adding `fetchPriority` will set image priority to be higher because by default browser treats images as lower priority than the rendering.
 - Adding `priority` which is exclusive prop to `next/image` adds `rel=preload` hint to image url causing browser to preload image, while parsing `<head>`.
 - The above prop will also disable lazy loading of image i.e. remove `loading=lazy` from `<img>` tag as it is not recommended for images part of LCP.
-- Also, `sizes` prop is set to make sure smaller size is requested for `<img>` with smaller width, at the same time making sure that the resolution is not too low. e.g. 500px width of `<img>` will load 640px width image at the minimum. 
+- Also, `sizes` prop is set to make sure smaller size is requested for `<img>` with smaller width, at the same time making sure that the resolution is not too low. e.g. 500px width of `<img>` will load 640px width image at the minimum.
 
 ### General Improvements
 
