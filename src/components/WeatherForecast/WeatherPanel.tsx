@@ -10,6 +10,7 @@ type WeatherPanelProps = {
   forecast: string | null;
 };
 
+// Since this component will be rendered inside Button we need to keep all elements as span
 const WeatherPanel: React.FC<WeatherPanelProps> = ({
   heading,
   subheading,
@@ -19,8 +20,8 @@ const WeatherPanel: React.FC<WeatherPanelProps> = ({
 }) => {
   return (
     <>
-      <h2 className={styles.heading}>{heading}</h2>
-      <div className={styles.subheading}>{subheading}</div>
+      <span className={styles.heading}>{heading}</span>
+      <span className={styles.subheading}>{subheading}</span>
       {/* If icon is null for any reason,
         or is loading slowly, it won't affect our CLS because of grid layout */}
       {icon && (
@@ -32,18 +33,13 @@ const WeatherPanel: React.FC<WeatherPanelProps> = ({
           alt={forecast ?? `${heading}'s weather`}
         />
       )}
-      <div
-        className={styles.temperature}
-        aria-label={`Estimated temperature from ${temperature.min}°C to ${temperature.max}°C`}
-      >
+      <span className={styles.temperature}>
         <span className={styles.temperatureMax}>{temperature.max ?? "-"}°</span>
         <span className={styles.temperatureMin}>
           /{temperature.min ?? "-"}°
         </span>
-      </div>
-      <div className={styles.forecast} aria-label={forecast ?? "Forecast"}>
-        {forecast ?? ""}
-      </div>
+      </span>
+      <span className={styles.forecast}>{forecast ?? ""}</span>
     </>
   );
 };

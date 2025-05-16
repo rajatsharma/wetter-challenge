@@ -9,7 +9,7 @@
 }
 
 .footerContainer {
-  margin-top: 2rem;
+  margin: 2rem 0;
 }
 
 .cityPanel {
@@ -22,6 +22,7 @@
   justify-content: space-between;
 
   &:last-of-type {
+    border: unset;
     border-radius: 0 0 0.5rem 0.5rem;
   }
 
@@ -51,6 +52,5 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    margin-top: 2rem;
   }
 }

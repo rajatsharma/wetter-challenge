@@ -19,35 +19,39 @@ const WeatherAccordion: React.FC<WeatherAccordionProps> = (props) => {
   const containerClass = `${styles.container} ${styles.accordion}`;
   // Generate SSR safe randomId for disclosure id
   const disclosureId = useId();
+  const accordionId = useId();
   const relativeDay = getRelativeDay(props.summary.date, props.timezone);
 
   // We need to make sure that the accordion is accessible by
   // tab and clickable using enter and space
   return (
     <>
-      <button
-        className={containerClass}
-        onClick={() => toggleOpen((s) => !s)}
-        tabIndex={0}
-        data-open={isOpen}
-        aria-expanded={isOpen}
-        aria-label={`View Detailed Forecast for ${relativeDay}`}
-        aria-controls={`disclosure-${disclosureId}`}
-      >
-        <WeatherPanel
-          heading={relativeDay}
-          subheading={formatDate(props.summary.date, props.timezone)}
-          icon={props.summary.weather.iconUrl}
-          temperature={props.summary.temperature}
-          forecast={props.summary.weather.text}
-        />
-        <div className={styles.handle} data-open={isOpen} aria-hidden>
-          <ChevronIcon />
-        </div>
-      </button>
+      <h2 className={styles.accordionHeader}>
+        <button
+          className={containerClass}
+          onClick={() => toggleOpen((s) => !s)}
+          tabIndex={0}
+          id={accordionId}
+          data-open={isOpen}
+          aria-expanded={isOpen}
+          aria-label={`Detailed Forecast for ${relativeDay}`}
+          aria-controls={disclosureId}
+        >
+          <WeatherPanel
+            heading={relativeDay}
+            subheading={formatDate(props.summary.date, props.timezone)}
+            icon={props.summary.weather.iconUrl}
+            temperature={props.summary.temperature}
+            forecast={props.summary.weather.text}
+          />
+          <div className={styles.handle} data-open={isOpen} aria-hidden>
+            <ChevronIcon />
+          </div>
+        </button>
+      </h2>
       <WeatherDisclosure
-        id={`disclosure-${disclosureId}`}
-        aria-label={`Detailed Forecast for ${relativeDay}`}
+        id={disclosureId}
+        aria-labelledby={accordionId}
         isOpen={isOpen}
         timezone={props.timezone}
         spaces={props.spaces}
