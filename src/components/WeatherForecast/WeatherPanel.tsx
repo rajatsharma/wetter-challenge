@@ -19,7 +19,7 @@ const WeatherPanel: React.FC<WeatherPanelProps> = ({
 }) => {
   return (
     <>
-      <h3 className={styles.heading}>{heading}</h3>
+      <h2 className={styles.heading}>{heading}</h2>
       <div className={styles.subheading}>{subheading}</div>
       {/* If icon is null for any reason,
         or is loading slowly, it won't affect our CLS because of grid layout */}
