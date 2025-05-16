@@ -21,8 +21,8 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
-        source: "/:path(.+?)\\.html",
-        destination: "/:path",
+        source: "/(forecast|this-is-the-forecast-page)/:days/:location\\.html",
+        destination: "/forecast/:days/:location",
       },
     ];
   },
