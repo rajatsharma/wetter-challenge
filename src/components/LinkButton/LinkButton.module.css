@@ -42,3 +42,9 @@
 .primary:hover {
   background-color: var(--btn-secondary-bg-hover);
 }
+
+@media (max-width: 500px) {
+  .linkButton {
+    font-size: 1rem;
+  }
+}

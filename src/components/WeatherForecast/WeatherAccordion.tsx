@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./WeatherForecast.module.css";
-import { useId, useState } from "react";
+import React, { useId, useState } from "react";
 import WeatherDisclosure from "@/components/WeatherForecast/WeatherDisclosure";
 import { ForecastSpace, ForecastSummary } from "@/app/types/forecast";
 import { formatDate, getRelativeDay } from "@/utils/helpers";
@@ -13,9 +13,10 @@ type WeatherAccordionProps = {
   spaces: ForecastSpace[];
 };
 
-export default function WeatherAccordion(props: WeatherAccordionProps) {
+const WeatherAccordion: React.FC<WeatherAccordionProps> = (props) => {
   const [isOpen, toggleOpen] = useState(false);
   const containerClass = `${styles.container} ${styles.accordion}`;
+  // Generate SSR safe randomId for disclosure id
   const disclosureId = useId();
   const relativeDay = getRelativeDay(props.summary.date);
 
@@ -49,4 +50,6 @@ export default function WeatherAccordion(props: WeatherAccordionProps) {
       />
     </>
   );
-}
+};
+
+export default WeatherAccordion;

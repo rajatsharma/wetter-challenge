@@ -17,10 +17,6 @@
     "heading icon temperature handle"
     "heading icon temperature handle"
     "subheading icon forecast handle";
-
-  & > * {
-    display: flex;
-  }
 }
 
 .accordion {
@@ -52,11 +48,13 @@
 }
 
 .heading {
+  display: flex;
   grid-area: heading;
   text-transform: capitalize;
 }
 
 .subheading {
+  display: flex;
   grid-area: subheading;
   margin: inherit;
 }
@@ -112,5 +110,28 @@
     &[data-open="true"] {
       border-radius: 0;
     }
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    font-size: 1rem;
+    padding: 0.5rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+
+    grid-template-areas:
+      "heading icon temperature handle"
+      "subheading icon temperature handle"
+      "forecast forecast forecast .";
+  }
+
+  .heading {
+    margin: 0.5rem 0;
+    align-self: end;
+  }
+
+  .subheading {
+    align-self: center;
   }
 }

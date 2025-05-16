@@ -2,7 +2,7 @@
 
 import styles from "./WeatherForecast.module.css";
 import { ForecastSpace } from "@/app/types/forecast";
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { formatHours } from "@/utils/helpers";
 import WeatherPanel from "@/components/WeatherForecast/WeatherPanel";
 
@@ -13,7 +13,7 @@ type WeatherDisclosureProps = {
   relativeDay: string;
 };
 
-export default function WeatherDisclosure(props: WeatherDisclosureProps) {
+const WeatherDisclosure: React.FC<WeatherDisclosureProps> = (props) => {
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -47,4 +47,6 @@ export default function WeatherDisclosure(props: WeatherDisclosureProps) {
       ))}
     </div>
   );
-}
+};
+
+export default WeatherDisclosure;

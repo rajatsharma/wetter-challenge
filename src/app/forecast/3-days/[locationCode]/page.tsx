@@ -37,9 +37,6 @@ export async function generateMetadata({
 
 export const revalidate = 3600;
 export default async function Page({ params }: { params: Params }) {
-  // Loader could appear when the cache is revalidating
-  // Uncomment the line below to forcefully suspend this component and check if Loader doesn't affect CLS
-  // await new Promise((r) => setTimeout(r, 1000));
   const { locationCode } = await params;
   const location = await getLocationData(locationCode);
   const weather = await getWeatherData(location.coordinates);
