@@ -8,7 +8,9 @@ const HomePage: React.FC = () => {
     <div className={styles.page}>
       <main>
         <h1>wetter.com coding challenge</h1>
-        <NextLink href="/forecast">go to Forecast Page</NextLink>
+        <NextLink href="/forecast" prefetch={false}>
+          go to Forecast Page
+        </NextLink>
         <SomeImage />
       </main>
     </div>
