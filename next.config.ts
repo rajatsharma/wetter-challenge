@@ -2,7 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   experimental: {
+    // Minimise CSS as much as possible
     useLightningcss: true,
+    // Since we don't have a lot of CSS we are inlining it, and we have already minimised it
     inlineCss: true,
   },
   logging: {

@@ -1,3 +1,4 @@
+import React from "react";
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
@@ -19,6 +20,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Preconnect to asset url, for quicker access to images and weather icons
   preconnect("https://cs3.wettercomassets.com", { crossOrigin: "" });
 
   return (

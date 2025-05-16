@@ -6,6 +6,7 @@ const requestHeaders = {
   "X-Application-ID": APPLICATION_ID_HEADER,
 };
 
+// The results of weather api is cached in the data-cache for 50 mins
 export async function getWeatherData(coordinates: {
   latitude: string;
   longitude: string;

@@ -6,6 +6,8 @@ const requestHeaders = {
   "X-Application-ID": APPLICATION_ID_HEADER,
 };
 
+// The results of location api is cached in the data-cache forever,
+// in case we need to revalidate, we can redeploy our application or create an endpoint to manually revalidate this
 export async function getLocationData(locationCode: string): Promise<Location> {
   const response = await fetch(`${WETTER_URL}/locations/${locationCode}/`, {
     cache: "force-cache",

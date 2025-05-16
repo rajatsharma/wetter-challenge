@@ -4,7 +4,7 @@ import styles from "./WeatherForecast.module.css";
 import React, { useId, useState } from "react";
 import WeatherDisclosure from "@/components/WeatherForecast/WeatherDisclosure";
 import { ForecastSpace, ForecastSummary } from "@/app/types/forecast";
-import { formatDate, getRelativeDay } from "@/utils/helpers";
+import { formatDate, getRelativeDay } from "@/lib/utils/helpers";
 import ChevronIcon from "@/components/icons/ChevronIcon";
 import WeatherPanel from "@/components/WeatherForecast/WeatherPanel";
 
@@ -20,6 +20,8 @@ const WeatherAccordion: React.FC<WeatherAccordionProps> = (props) => {
   const disclosureId = useId();
   const relativeDay = getRelativeDay(props.summary.date);
 
+  // We need to make sure that the accordion is accessible by
+  // tab and clickable using enter and space
   return (
     <>
       <button

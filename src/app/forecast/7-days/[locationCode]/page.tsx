@@ -14,6 +14,7 @@ export async function generateMetadata({
   params: Params;
 }): Promise<Metadata> {
   const { locationCode } = await params;
+  // Since the location data is cached, we can call this function again later with no cost
   const location = await getLocationData(locationCode);
 
   const title = `${location.name} - 7 Days Weather Forecast`;
@@ -37,6 +38,7 @@ export async function generateMetadata({
   };
 }
 
+// Mark this page for cache for 1 hr
 export const revalidate = 3600;
 export default async function Page({ params }: { params: Params }) {
   const { locationCode } = await params;

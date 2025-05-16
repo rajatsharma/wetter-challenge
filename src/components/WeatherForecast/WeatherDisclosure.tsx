@@ -3,7 +3,7 @@
 import styles from "./WeatherForecast.module.css";
 import { ForecastSpace } from "@/app/types/forecast";
 import React, { useEffect, useRef } from "react";
-import { formatHours } from "@/utils/helpers";
+import { formatHours } from "@/lib/utils/helpers";
 import WeatherPanel from "@/components/WeatherForecast/WeatherPanel";
 
 type WeatherDisclosureProps = {
@@ -16,6 +16,8 @@ type WeatherDisclosureProps = {
 const WeatherDisclosure: React.FC<WeatherDisclosureProps> = (props) => {
   const contentRef = useRef<HTMLDivElement>(null);
 
+  // This will allow us to hide content to the user while keeping it visible for search engines
+  // We will keep it closed by default to keep our CLS 0
   useEffect(() => {
     if (contentRef.current) {
       contentRef.current.style.maxHeight = props.isOpen
