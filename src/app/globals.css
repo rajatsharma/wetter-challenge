@@ -1,7 +1,4 @@
 :root {
-  /* Keep these colors same as original as HomePage depends on it */
-  --background: #ffffff;
-  --foreground: #171717;
   --btn-primary-bg: oklch(86.9% 0.022 252.894);
   --btn-primary-text: oklch(0 0 0);
   --btn-primary-border: oklch(0.39 0 0);
@@ -14,6 +11,9 @@
   --card-secondary-bg: oklch(97% 0.014 254.604);
   --card-border-color: oklch(70.7% 0.022 261.325);
   --focus-outline-color: oklch(0.71 0.14 254.63);
+  /* Keep these colors same as original as HomePage depends on it */
+  --background: #ffffff;
+  --foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -45,7 +45,7 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-geist-sans), Helvetica, Arial;
+  font-family: var(--font-geist-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
