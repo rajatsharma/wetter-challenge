@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./layout.module.css";
 import LinkButton from "@/components/LinkButton/LinkButton";
 import Header from "@/components/Header/Header";
+import type { Metadata } from "next";
 
 const citiesList = [
   {
@@ -25,6 +26,27 @@ const citiesList = [
     code: "DE0002989",
   },
 ];
+
+const title = "Weather Forecast powered by Wetter.com";
+const description = `Weather Forecast for ${citiesList.map((c) => c.name).join(", ")}`;
+const keywords = citiesList.map((c) => `${c.name} weather`).join(", ");
+
+export const metadata: Metadata = {
+  title,
+  description,
+  keywords: `${keywords}, Wetter, 3 Days Forecast, 7 Days Forecast, Weather, Current Weather`,
+  openGraph: {
+    title,
+    description,
+    type: "website",
+    siteName: "wetter-test.vercel.app",
+    url: "https://wetter-test.vercel.app/forecast/",
+  },
+  twitter: {
+    title,
+    description,
+  },
+};
 
 const ForecastPage: React.FC = () => {
   return (

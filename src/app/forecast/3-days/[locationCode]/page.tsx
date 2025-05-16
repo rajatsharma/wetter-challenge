@@ -27,6 +27,8 @@ export async function generateMetadata({
       title,
       description,
       type: "website",
+      siteName: "wetter-test.vercel.app",
+      url: `https://wetter-test.vercel.app/forecast/7-days/${locationCode}.html`,
     },
     twitter: {
       title,

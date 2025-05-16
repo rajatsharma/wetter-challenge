@@ -24,6 +24,8 @@ export async function generateMetadata({
     description,
     keywords: `${location.name} Weather, Wetter, 7 Days Forecast, Weather, Current Weather`,
     openGraph: {
+      siteName: "wetter-test.vercel.app",
+      url: `https://wetter-test.vercel.app/forecast/7-days/${locationCode}.html`,
       title,
       description,
       type: "website",

@@ -11,6 +11,7 @@ const geistSans = Geist({
 
 export const metadata: Metadata = {
   title: "wetter.com Coding Challenge",
+  description: "Weather Forecast powered by Wetter.com",
 };
 
 export default function RootLayout({
