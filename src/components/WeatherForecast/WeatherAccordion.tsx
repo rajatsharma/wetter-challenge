@@ -9,9 +9,9 @@ import ChevronIcon from "@/components/icons/ChevronIcon";
 import WeatherPanel from "@/components/WeatherForecast/WeatherPanel";
 
 type WeatherAccordionProps = {
-  index: number;
   summary: ForecastSummary;
   spaces: ForecastSpace[];
+  timezone: string;
 };
 
 const WeatherAccordion: React.FC<WeatherAccordionProps> = (props) => {
@@ -19,7 +19,7 @@ const WeatherAccordion: React.FC<WeatherAccordionProps> = (props) => {
   const containerClass = `${styles.container} ${styles.accordion}`;
   // Generate SSR safe randomId for disclosure id
   const disclosureId = useId();
-  const relativeDay = getRelativeDay(props.summary.date, props.index);
+  const relativeDay = getRelativeDay(props.summary.date, props.timezone);
 
   // We need to make sure that the accordion is accessible by
   // tab and clickable using enter and space
@@ -36,7 +36,7 @@ const WeatherAccordion: React.FC<WeatherAccordionProps> = (props) => {
       >
         <WeatherPanel
           heading={relativeDay}
-          subheading={formatDate(props.summary.date)}
+          subheading={formatDate(props.summary.date, props.timezone)}
           icon={props.summary.weather.iconUrl}
           temperature={props.summary.temperature}
           forecast={props.summary.weather.text}
@@ -46,10 +46,11 @@ const WeatherAccordion: React.FC<WeatherAccordionProps> = (props) => {
         </div>
       </button>
       <WeatherDisclosure
-        spaces={props.spaces}
+        id={`disclosure-${disclosureId}`}
+        aria-label={`Detailed Forecast for ${relativeDay}`}
         isOpen={isOpen}
-        relativeDay={relativeDay}
-        id={disclosureId}
+        timezone={props.timezone}
+        spaces={props.spaces}
       />
     </>
   );

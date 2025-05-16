@@ -1,35 +1,40 @@
-import { format } from "date-fns";
+import { format, isToday, isTomorrow } from "date-fns";
+import { tz } from "@date-fns/tz";
 
-export function getRelativeDay(date: string | null, index: number) {
+export function getRelativeDay(date: string | null, timezone: string) {
   if (date === null) {
     return "-----";
   }
 
-  // We are using index to determine Today, or Tomorrow instead of using isToday() because it could cause
-  // hydration errors when page is served from different timezone as the client
-  if (index === 0) {
+  if (isToday(date, { in: tz(timezone) })) {
     return "Today";
   }
 
-  if (index === 1) {
+  if (isTomorrow(date, { in: tz(timezone) })) {
     return "Tomorrow";
   }
 
-  return format(date, "EEEE");
+  return format(date, "EEEE", {
+    in: tz(timezone),
+  });
 }
 
-export function formatDate(date: string | null) {
+export function formatDate(date: string | null, timezone: string) {
   if (date === null) {
     return "-- ---";
   }
 
-  return format(date, "do MMM");
+  return format(date, "do MMM", {
+    in: tz(timezone),
+  });
 }
 
-export function formatHours(date: string | null) {
+export function formatHours(date: string | null, timezone: string) {
   if (date === null) {
     return "--";
   }
 
-  return format(date, "HH");
+  return format(date, "HH", {
+    in: tz(timezone),
+  });
 }

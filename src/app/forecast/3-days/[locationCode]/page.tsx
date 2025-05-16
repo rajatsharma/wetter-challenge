@@ -55,10 +55,10 @@ export default async function Page({ params }: { params: Params }) {
         </LinkButton>
       </Header>
       <main className={styles.sectionBoundary}>
-        {threeDaysForecast.map((w, i) => (
+        {threeDaysForecast.map((w) => (
           <WeatherAccordion
-            index={i}
             key={w.summary.date}
+            timezone={location.timezone ?? "Europe/Berlin"}
             summary={w.summary}
             spaces={w.spaces}
           />
