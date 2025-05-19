@@ -1,0 +1,155 @@
+.container {
+  display: grid;
+  font: inherit;
+  padding: 1.25rem;
+  grid-column-gap: 0;
+  grid-row-gap: 0;
+  align-items: stretch;
+  justify-items: stretch;
+  justify-content: stretch;
+  width: 100%;
+  border: none;
+  align-content: stretch;
+  grid-template-columns: 1fr 1fr 1.5fr 0.5fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "heading icon temperature handle"
+    "heading icon temperature handle"
+    "subheading icon forecast handle";
+}
+
+.accordionHeader {
+  margin: unset;
+  font-weight: unset;
+  font-size: unset;
+  overflow: hidden;
+  transition: border-radius ease 0.5s;
+
+  &:has(:focus-visible) {
+    outline: 2px solid var(--focus-outline-color);
+    outline-offset: 2px;
+  }
+
+  &:first-of-type {
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+
+  &:last-of-type {
+    border-radius: 0 0 0.5rem 0.5rem;
+
+    & > * {
+      border: none;
+    }
+
+    &:has([data-open="true"]) {
+      border-radius: unset;
+    }
+  }
+}
+
+.accordion {
+  background: var(--card-primary-bg);
+  border-bottom: solid 1px var(--card-border-color);
+}
+
+.accordion:focus-visible {
+  outline: none;
+}
+
+.disclosure {
+  background: var(--card-secondary-bg);
+  border-radius: 0;
+  border-bottom: none;
+}
+
+.heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1.2rem 0;
+  display: flex;
+  grid-area: heading;
+  text-transform: capitalize;
+}
+
+.subheading {
+  display: flex;
+  grid-area: subheading;
+  margin: inherit;
+}
+
+.icon {
+  grid-area: icon;
+  align-self: center;
+  justify-self: center;
+}
+
+.temperature {
+  grid-area: temperature;
+  align-self: center;
+  justify-self: center;
+}
+
+.temperatureMax {
+  align-self: flex-end;
+  font-size: 2rem;
+  font-weight: bolder;
+}
+
+.temperatureMin {
+  align-self: flex-end;
+  font-weight: lighter;
+  font-size: 1.5rem;
+}
+
+.forecast {
+  grid-area: forecast;
+  justify-self: center;
+}
+
+.handle {
+  align-self: center;
+  justify-self: flex-end;
+  grid-area: handle;
+  transition: transform ease 0.5s;
+
+  &[data-open="true"] {
+    transform: rotate(180deg);
+  }
+}
+
+.disclosureBoundary {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height ease 0.5s;
+
+  &:last-of-type {
+    border-radius: 0 0 0.5rem 0.5rem;
+
+    &[data-open="true"] {
+      border-radius: 0;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    font-size: 1rem;
+    padding: 0.5rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+
+    grid-template-areas:
+      "heading icon temperature handle"
+      "subheading icon temperature handle"
+      "forecast forecast forecast .";
+  }
+
+  .heading {
+    margin: 0.5rem 0;
+    align-self: end;
+  }
+
+  .subheading {
+    align-self: center;
+  }
+}

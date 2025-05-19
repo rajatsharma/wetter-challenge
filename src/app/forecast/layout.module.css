@@ -1,0 +1,56 @@
+.container {
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.sectionBoundary {
+  border: solid 1px var(--card-border-color);
+  border-radius: 0.5rem;
+}
+
+.footerContainer {
+  margin: 2rem 0;
+}
+
+.cityPanel {
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  height: 8rem;
+  background-color: var(--card-primary-bg);
+  border-bottom: solid 1px var(--card-border-color);
+  justify-content: space-between;
+
+  &:last-of-type {
+    border: unset;
+    border-radius: 0 0 0.5rem 0.5rem;
+  }
+
+  &:first-of-type {
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+
+  & > :first-child {
+    flex: 1;
+    display: flex;
+  }
+
+  & > * {
+    margin: 1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .cityPanel {
+    padding: 1rem;
+    height: auto;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .footerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
